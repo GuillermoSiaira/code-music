@@ -1,0 +1,22 @@
+{
+  "name": "strudel-cheatsheet",
+  "private": true,
+  "type": "module",
+  "description": "Genera el PDF 'Strudel cheat sheet' evaluando los ejemplos con el motor real de Strudel",
+  "scripts": {
+    "postinstall": "node fix.mjs",
+    "validate": "node val.mjs",
+    "build": "node build.mjs",
+    "shots": "node render.mjs",
+    "pdf": "node build.mjs && node render.mjs 0 --pdf",
+    "hydra-shots": "node hy/shoot.mjs"
+  },
+  "dependencies": {
+    "@strudel/core": "1.2.6",
+    "@strudel/mini": "1.2.6",
+    "@strudel/tonal": "1.2.6",
+    "@strudel/transpiler": "1.2.6",
+    "hydra-synth": "1.4.0",
+    "playwright": "^1.48.0"
+  }
+}

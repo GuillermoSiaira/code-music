@@ -1,0 +1,10 @@
+// Primer tema: 4 capas (portada del cheat sheet)
+// Probá mutear capas agregando _ al nombre (ej: _mel:)
+
+setcpm(124/4)
+drums: s("bd*4, [~ hh]*4, ~ cp").bank("RolandTR909")
+bass:  note("<c2 c2 eb2 g1>*8").s("sawtooth").lpf(600)
+chords: chord("<Cm9 Fm9>").voicing().s("triangle")
+  .struct("~ x ~ ~").room(.5)
+mel:   n("0 2 4 <7 6>").scale("C:minor").s("sine")
+  .late(1/8).delay(.4)
