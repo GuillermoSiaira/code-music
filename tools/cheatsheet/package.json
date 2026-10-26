@@ -6,6 +6,7 @@
   "scripts": {
     "postinstall": "node fix.mjs",
     "validate": "node val.mjs",
+    "validate-patterns": "node val-patterns.mjs",
     "build": "node build.mjs",
     "shots": "node render.mjs",
     "pdf": "node build.mjs && node render.mjs 0 --pdf",
