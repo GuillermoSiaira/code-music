@@ -7,7 +7,7 @@ Aprendizaje de **live coding de música electrónica**: Strudel (sonido) y Hydra
 ```
 code-music/
 ├── docs/
-│   ├── strudel-cheatsheet.pdf      cheat sheet de 16 págs: ritmo, armonía, síntesis, estilos, Hydra
+│   ├── strudel-cheatsheet.pdf      cheat sheet de 19 págs: ritmo, teoría, armonía, síntesis, trigonometría, estilos, Hydra
 │   └── notas/                      apuntes de cada sesión (markdown)
 ├── patterns/                       código listo para pegar en https://strudel.cc
 │   ├── estilos/                    10 plantillas completas por género
@@ -32,7 +32,7 @@ npm install                 # corre fix.mjs automáticamente (parchea dependenci
 npx playwright install chromium
 npm run validate            # evalúa todos los ejemplos con Strudel
 npm run pdf                 # escribe docs\strudel-cheatsheet.pdf
-npm run hydra-shots         # (opcional) regenera las capturas de Hydra de la pág. 15
+npm run hydra-shots         # (opcional) regenera las capturas de Hydra de la pág. 18
 ```
 
 Para usar un Chrome ya instalado en lugar del de Playwright: `$env:CHROME_PATH="C:\ruta\chrome.exe"`.

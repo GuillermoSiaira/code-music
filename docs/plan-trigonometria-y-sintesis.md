@@ -21,6 +21,8 @@ Antecedente en el repo (otra sesión): `docs/notas/04-musica-de-las-esferas.md` 
 `05-armonia-visuales-y-material-propio.md` (Pitágoras, razones de frecuencia, octava cósmica,
 Hydra, material propio), con los patrones `patterns/estudios/04-` a `06-`. La sesión 3 parte de ahí.
 
+En el PDF (`docs/strudel-cheatsheet.pdf`): pág. 7 *Teoría de bolsillo*, págs. 12–13 *Trigonometría I y II*.
+
 ## Diccionario guía ↔ sinte (ya verificado en el código)
 
 | Guía | Oscilador (sonido) | LFO (movimiento) | Strudel |

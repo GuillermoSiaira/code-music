@@ -30,10 +30,13 @@ ${[
     ['rit', 'Mini-notación', 'el lenguaje dentro de las comillas'],
     ['rit', 'Ritmo I · transformaciones', 'fast, off, euclid, iter, swing…'],
     ['rit', 'Ritmo II · grooves por género', '10 patrones de batería calculados'],
+    ['arm', 'Teoría de bolsillo', 'teclado + Hz, T/S, tonalidad, quintas, razones'],
     ['arm', 'Armonía I · notas, escalas, modos', 'n().scale(), teclado, intervalos'],
     ['arm', 'Armonía II · acordes y progresiones', 'chord().voicing(), arp, bajos'],
     ['sin', 'Síntesis I · fuente y envolventes', 'osciladores, ADSR, filtro, FM'],
     ['fx', 'Síntesis II · efectos y cadena', 'orden real de superdough, sidechain'],
+    ['sin', 'Trigonometría I · la sinusoide', 'A·sen(Bx+C)+D = oscilador y LFO'],
+    ['arm', 'Trigonometría II · tipos de síntesis', 'Fourier, FM, AM, batimiento, Hydra'],
     ['js', 'Azar y modulación', 'señales, rand, seed, ribbon, LFOs'],
     ['arm', 'Estilos I', 'house, techno, dub techno, acid, ambient'],
     ['arm', 'Estilos II', 'DnB, trap, dembow, UK garage, lo-fi'],
@@ -61,8 +64,8 @@ ${[
     </div>
     <div class="col" style="gap:6px">
       ${card('Contenido', `<div class="toc" style="grid-template-columns:1fr">${toc.map(([c, t, d], i) => `<div><span class="n" style="color:var(--${c})">${String(i + 2).padStart(2, '0')}</span><span class="t">${t}</span><span class="d">${d}</span></div>`).join('')}</div>`, { c: 'js' })}
-      ${card('Cómo usar este PDF', `<ul class="tight"><li>Primero entendé el <b>modelo mental</b> (pág. 2–3): todo lo demás son variaciones.</li><li>En cada página, el código de la izquierda produce el gráfico de la derecha. Cambiá un número y escuchá.</li><li>Los grises <span class="mono" style="color:var(--faint)">pattern.mjs:1905</span> indican dónde está la función en el código fuente de Strudel, para leerla.</li><li>Las recetas de estilos (pág. 12–13) son plantillas: copiá, rompé, rearmá.</li></ul>`, { c: 'rit' })}
-      ${card('Recursos', `<div class="kv"><code>strudel.cc</code><span>el REPL: editor + motor de audio en el navegador</span><code>strudel.cc/learn</code><span>docs oficiales con ejemplos que suenan</span><code>codeberg.org/uzu/strudel</code><span>código fuente (se mudó desde GitHub)</span><code>npm @strudel/core</code><span>los paquetes que se citan acá, versión 1.2.6</span><code>hydra.ojack.xyz</code><span>Hydra: visuales en vivo (pág. 15)</span></div>`, { c: 'fx' })}
+      ${card('Cómo usar este PDF', `<ul class="tight"><li>Primero entendé el <b>modelo mental</b> (pág. 2–3): todo lo demás son variaciones.</li><li>En cada página, el código de la izquierda produce el gráfico de la derecha. Cambiá un número y escuchá.</li><li>Los grises <span class="mono" style="color:var(--faint)">pattern.mjs:1905</span> indican dónde está la función en el código fuente de Strudel, para leerla.</li><li>Las recetas de estilos (pág. 15–16) son plantillas: copiá, rompé, rearmá.</li></ul>`, { c: 'rit' })}
+      ${card('Recursos', `<div class="kv"><code>strudel.cc</code><span>el REPL: editor + motor de audio en el navegador</span><code>strudel.cc/learn</code><span>docs oficiales con ejemplos que suenan</span><code>codeberg.org/uzu/strudel</code><span>código fuente (se mudó desde GitHub)</span><code>npm @strudel/core</code><span>los paquetes que se citan acá, versión 1.2.6</span><code>hydra.ojack.xyz</code><span>Hydra: visuales en vivo (pág. 18)</span></div>`, { c: 'fx' })}
     </div>
   </div>`, { noHeader: true, acc2: 'arm' });
 }
@@ -311,7 +314,7 @@ $: s("hh*8").swingBy(1/3, 4)`, `chord("<Fm9 Bbm9>")
   .voicing().s("sawtooth")
   .struct("~ x ~ ~ x ~ ~ ~")
   .lpf(1500)`],
-  ['Dub Techno', 118, 'bombo suave y hats a contratiempo; el groove lo dan los acordes con delay (pág. 12).', `$: s("bd*4")
+  ['Dub Techno', 118, 'bombo suave y hats a contratiempo; el groove lo dan los acordes con delay (pág. 15).', `$: s("bd*4")
 $: s("[~ hh]*4")
 $: s("rim").beat("6", 16)`, `chord("Cm7").voicing()
   .s("sawtooth").lpf(700)
@@ -334,6 +337,6 @@ export function rhythm2() {
   return page('Ritmo II · grooves por género', 'Patrones de batería en una grilla de 16 pasos (1 ciclo = 1 compás). Las columnas claras marcan los tiempos 1-2-3-4. La opacidad indica el gain.', 'rit', `
   <div class="grid" style="grid-template-columns:repeat(5,1fr);grid-template-rows:1fr 1fr auto;gap:4px">
     ${GROOVES.map(([name, bpm, d, code, add]) => card(name, `${grid(code, { steps: 16, w: 200, rowH: 15, labelW: 17, order, colorMap: DRUMC, hit: true })}${pre(code)}<p class="small dim">${d}</p><p class="small" style="margin-top:auto"><b style="color:var(--arm)">Sumale un bajo o acordes:</b></p>${pre(add).replace('<pre class="">', '<pre style="--c:var(--arm)">')}`, { c: 'rit', cls: 'genre', tag: '', style: '--c:var(--rit)' }).replace('</h3>', `<span class="bpm">${bpm} BPM</span></h3>`)).join('')}
-    ${card('Cómo sonar a máquina real', `<div class="row" style="gap:14px;align-items:flex-start"><ul class="tight" style="flex:1"><li><code>.bank("RolandTR909")</code> house y techno · <code>"RolandTR808"</code> trap, electro y dembow · <code>"LinnDrum"</code> pop 80s. Por ejemplo: <code>s("bd*4").bank("RolandTR909")</code>.</li><li>Las abreviaturas son estándar: <code>bd</code> bombo, <code>sd</code> caja, <code>hh</code>/<code>oh</code> hat cerrado/abierto, <code>cp</code> palmas, <code>rim</code> aro, <code>lt mt ht</code> toms, <code>cr rd</code> platos.</li></ul><ul class="tight" style="flex:1"><li><b>Velocity humana:</b> <code>.gain("[.8 .5 .7 .5]*4")</code> o <code>.velocity(rand.range(.6,1))</code>.</li><li><b>Groove:</b> <code>.swingBy(1/6, 4)</code> sutil, <code>1/3</code> marcado. <code>.nudge(0.01)</code> retrasa unos milisegundos.</li><li><b>Variación:</b> <code>.sometimes(x=>x.ply(2))</code>, <code>.every(4, x=>x.fast(2))</code> para el fill del 4º compás.</li></ul><ul class="tight" style="flex:1"><li><b>Sidechain:</b> <code>.duckorbit(2)</code> en el bombo hace "respirar" a lo que suena en el orbit 2 (pág. 10).</li><li><b>BPM:</b> <code>setcpm(132/4)</code> al principio del código.</li><li>La grilla de 16 pasos es solo una convención: <code>"bd(5,12)"</code> también vale.</li></ul></div>`, { c: 'rit', tag: 'TIPS', style: 'grid-column:span 5' })}
+    ${card('Cómo sonar a máquina real', `<div class="row" style="gap:14px;align-items:flex-start"><ul class="tight" style="flex:1"><li><code>.bank("RolandTR909")</code> house y techno · <code>"RolandTR808"</code> trap, electro y dembow · <code>"LinnDrum"</code> pop 80s. Por ejemplo: <code>s("bd*4").bank("RolandTR909")</code>.</li><li>Las abreviaturas son estándar: <code>bd</code> bombo, <code>sd</code> caja, <code>hh</code>/<code>oh</code> hat cerrado/abierto, <code>cp</code> palmas, <code>rim</code> aro, <code>lt mt ht</code> toms, <code>cr rd</code> platos.</li></ul><ul class="tight" style="flex:1"><li><b>Velocity humana:</b> <code>.gain("[.8 .5 .7 .5]*4")</code> o <code>.velocity(rand.range(.6,1))</code>.</li><li><b>Groove:</b> <code>.swingBy(1/6, 4)</code> sutil, <code>1/3</code> marcado. <code>.nudge(0.01)</code> retrasa unos milisegundos.</li><li><b>Variación:</b> <code>.sometimes(x=>x.ply(2))</code>, <code>.every(4, x=>x.fast(2))</code> para el fill del 4º compás.</li></ul><ul class="tight" style="flex:1"><li><b>Sidechain:</b> <code>.duckorbit(2)</code> en el bombo hace "respirar" a lo que suena en el orbit 2 (pág. 11).</li><li><b>BPM:</b> <code>setcpm(132/4)</code> al principio del código.</li><li>La grilla de 16 pasos es solo una convención: <code>"bd(5,12)"</code> también vale.</li></ul></div>`, { c: 'rit', tag: 'TIPS', style: 'grid-column:span 5' })}
   </div>`);
 }

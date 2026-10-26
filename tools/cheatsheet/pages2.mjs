@@ -42,7 +42,7 @@ export function harmony1() {
       <tr><td>Trance / EDM</td><td class="m">minor · harmonic:minor</td><td class="small">épico; la 7ª mayor empuja a resolver</td></tr>
       <tr><td>Ambient</td><td class="m">lydian · major:pentatonic</td><td class="small">sin tensiones fuertes, flota</td></tr>
       <tr><td>Hip-hop / Lo-fi</td><td class="m">minor:pentatonic · dorian</td><td class="small">melodías que nunca chocan</td></tr>
-      <tr><td>Reggaetón</td><td class="m">minor · harmonic:minor</td><td class="small">progresión andaluza (pág. 8)</td></tr>
+      <tr><td>Reggaetón</td><td class="m">minor · harmonic:minor</td><td class="small">progresión andaluza (pág. 9)</td></tr>
     </table>`, { c: 'arm', tag: 'MODOS', style: 'grid-row:span 2' })}
     ${card('Grados: cómo piensa n().scale()', `${pre(`n("0 2 4 <6 7> 9 7 4 -1")
   .scale("<C:minor F:dorian>")

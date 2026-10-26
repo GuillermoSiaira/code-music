@@ -80,3 +80,4 @@ ul.tight li::before { content: '▸'; position: absolute; left: 0; color: var(--
 .tight-t td, .tight-t th { padding: 1px 3px; }
 
 code, pre, .mono, td.m, td.f, .viz text, .kv code { font-variant-ligatures: none; font-feature-settings: 'liga' 0, 'calt' 0; }
+td.m.wm, .wrapm td.m { white-space: normal; }

@@ -150,7 +150,7 @@ export function styles1() {
   <div class="grid" style="grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr 1fr">
     ${STYLES1.map(styleCard).join('')}
     ${card('Cómo construir un tema desde cero', `<ol class="small" style="padding-left:14px;display:flex;flex-direction:column;gap:2px">
-      <li><b>Tempo y tonalidad:</b> <code>setcpm(bpm/4)</code> y elegí una escala (pág. 7).</li>
+      <li><b>Tempo y tonalidad:</b> <code>setcpm(bpm/4)</code> y elegí una escala (pág. 8).</li>
       <li><b>Bombo:</b> el esqueleto. Escuchalo solo 8 compases.</li>
       <li><b>Bajo:</b> que <i>dialogue</i> con el bombo (en los huecos) y en la tónica.</li>
       <li><b>Hats/percusión:</b> el movimiento; acá entra el swing.</li>
@@ -318,6 +318,7 @@ export function reference() {
     ['6', 'Azar', 'rand, rib, sometimes, perlin', 'un lead "vivo" a lo autora del video'],
     ['7', 'Mezcla + forma', 'orbit, duck, hpf, arrange, mask', 'tema completo de 3 minutos'],
     ['8', 'Hydra', 'initHydra, H(), feedStrudel', 'tu tema con visuales sincronizados'],
+    ['+', 'Trigonometría', 'págs. 12–13 · docs/plan-trigonometria-y-sintesis.md', 'eje paralelo: la guía de A·sen(Bx+C)+D en el sinte'],
   ];
   return page('Referencia de fuentes + ruta de aprendizaje', 'Dónde vive cada función en el código (paquetes npm @strudel/* 1.2.6; repo: codeberg.org/uzu/strudel, carpeta packages/). Abrí el archivo y leé la función: tiene la doc y ejemplos encima.', 'js', `
   <div class="grid" style="grid-template-columns:1fr 1fr 1fr;grid-template-rows:auto auto 1fr">
